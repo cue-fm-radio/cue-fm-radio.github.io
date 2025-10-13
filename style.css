@@ -1,0 +1,180 @@
+/* ====== 全体 ====== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', 'Yu Gothic', sans-serif;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ====== スプラッシュ ====== */
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.logo {
+  width: 160px;
+  height: auto;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.circle-name {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 2em;
+  margin-top: 20px;
+  color: #5b5b5bff;
+  letter-spacing: 1px;
+}
+
+/* ====== メインコンテンツ ====== */
+#main-content {
+  opacity: 0;
+  transition: opacity 1s ease;
+  padding: 40px 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ====== 中央寄せ用のラッパ ====== */
+.main-inner {
+  max-width: 900px;  /* ✅ 幅をそろえる基準 */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ====== サークルヘッダー ====== */
+.circle-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.circle-title {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 3em;
+  font-weight: 600;
+  color: #5b5b5bff;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* 集合写真 */
+.group-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 見出し */
+h2 {
+  font-size: 1.6em;
+  color: #0073e6;
+  margin-bottom: 25px;
+}
+/* ====== 入部希望セクション ====== */
+.join-info {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #f9fcff; /* 柔らかい青背景で親しみやすく */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.join-info h2 {
+  color: #0073e6;
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+
+.join-info p {
+  font-size: 1.05em;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* リンクボタリンクカード一覧 */
+.link-cards {
+  display: flex;
+  flex-wrap: wrap;              /* 横に並ばないときは折り返す */
+  justify-content: center;      /* 中央寄せ */
+  gap: 20px;                    /* カード間の間隔 */
+  padding: 20px;
+  width: 100%;
+}
+
+/* 各カード */
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 200px;
+  height: 200px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.card span {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* SNSカラーのアクセント */
+.card.web:hover { box-shadow: 0 6px 16px rgba(100,150,255,0.4); transform: translateY(-5px); }
+.card.instagram:hover { box-shadow: 0 6px 16px rgba(225,48,108,0.4); transform: translateY(-5px); }
+.card.x:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.4); transform: translateY(-5px); }
+.card.youtube:hover { box-shadow: 0 6px 16px rgba(255,0,0,0.4); transform: translateY(-5px); }
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .card {
+    width: 150px;
+    height: 150px;
+  }
+  .card img {
+    width: 50px;
+    height: 50px;
+  }
+}
