@@ -166,6 +166,8 @@ h2 {
 .card.instagram:hover { box-shadow: 0 6px 16px rgba(225,48,108,0.4); transform: translateY(-5px); }
 .card.x:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.4); transform: translateY(-5px); }
 .card.youtube:hover { box-shadow: 0 6px 16px rgba(255,0,0,0.4); transform: translateY(-5px); }
+.card.spotify:hover { box-shadow: 0 6px 16px rgba(30,215,96, 0.40); transform: translateY(-5px); }
+
 
 /* スマホ対応 */
 @media (max-width: 600px) {
