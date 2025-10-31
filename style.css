@@ -127,6 +127,39 @@ h2 {
   line-height: 1.8;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-email {
+  background-color: #0073e6;
+  box-shadow: 0 4px 12px rgba(0, 115, 230, 0.25);
+}
+
+.contact-sns {
+  background-color: #f06292;
+  box-shadow: 0 4px 12px rgba(240, 98, 146, 0.25);
+}
+
+.contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
 /* リンクボタリンクカード一覧 */
 .link-cards {
   display: flex;
