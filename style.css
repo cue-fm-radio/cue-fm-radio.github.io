@@ -313,6 +313,47 @@ h2 {
 }
 
 
+/* ====== 画像モーダル ====== */
+#image-viewer {
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  background: transparent;
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: auto;
+}
+
+#image-viewer::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+#image-viewer img {
+  max-width: 100vw;
+  max-height: 80vh;
+  display: block;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+#image-viewer .close-instruction {
+  color: white;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* クラスが付いた画像はカーソルをポインターにする */
+.clickable-img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.clickable-img:hover {
+  transform: scale(1.02);
+}
+
 /* スマホ対応 */
 @media (max-width: 600px) {
   .circle-header {
