@@ -141,8 +141,9 @@ h2 {
 
 .join-info p {
   font-size: 1.05em;
-  color: #333;
+  color: var(--text-main);
   line-height: 1.8;
+  margin-bottom: 15px;
 }
 
 .contact-actions {
@@ -195,7 +196,8 @@ h2 {
   margin-bottom: 5px;
 }
 
-.enkare-intro .catchphrase {
+.enkare-intro .catchphrase,
+.join-info .catchphrase {
   font-size: 1.2em;
   font-weight: bold;
   color: var(--wix-blue);
@@ -203,10 +205,11 @@ h2 {
   letter-spacing: 1px;
 }
 
-.enkare-intro .intro-content {
+.enkare-intro .intro-content,
+.join-info .intro-content {
   text-align: left;
   display: inline-block;
-  max-width: 600px;
+  max-width: 90%;
 }
 
 .enkare-intro p {
@@ -221,7 +224,7 @@ h2 {
   padding: 15px 20px;
   border-radius: 12px;
   border-left: 5px solid var(--wix-blue);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .broadcast-info p {
@@ -229,6 +232,17 @@ h2 {
   font-size: 1em;
   color: var(--text-main);
   line-height: 1.4;
+}
+
+/* カレンダー等の画像ラッパー */
+.calendar-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.calendar-img {
+  max-width: 100%;
+  border-radius: 12px;
 }
 
 /* リンクカード一覧 */
@@ -329,21 +343,31 @@ h2 {
     width: 50px;
     height: auto;
   }
-  .enkare-intro {
+
+  .enkare-intro,
+  .join-info {
     padding: 20px;
   }
-  .enkare-intro h2 {
+
+  .enkare-intro h2,
+  .join-info h2 {
     font-size: 1.5em;
   }
-  .enkare-intro .catchphrase {
+
+  .enkare-intro .catchphrase,
+  .join-info .catchphrase {
     font-size: 1.05em;
   }
-  .enkare-intro p {
+
+  .enkare-intro p,
+  .join-info p {
     font-size: 0.95em;
   }
+
   .broadcast-info {
     padding: 12px 15px;
   }
+
   .site-desc {
     font-size: 0.65rem;
     margin: 5px 5px 0;
