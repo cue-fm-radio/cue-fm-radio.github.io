@@ -245,6 +245,40 @@ h2 {
   border-radius: 12px;
 }
 
+/* アクセスエリア */
+.access-info {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.access-info .access-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--wix-blue);
+  font-size: 1.2em;
+}
+
+.map-wrapper {
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 300px;
+  display: block;
+}
+
+.access-info .access-desc {
+  font-size: 0.9em;
+  margin-top: 10px;
+  color: var(--text-main);
+}
+
 /* リンクカード一覧 */
 .link-cards {
   display: flex;
@@ -350,6 +384,7 @@ h2 {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .clickable-img:hover {
   transform: scale(1.02);
 }
