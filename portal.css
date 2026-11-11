@@ -3,4 +3,22 @@
 
 .brand .club-name small{margin:0 0 4px;font-size:11px;letter-spacing:.04em}.brand .club-name strong{display:block;color:var(--blue);font-size:27px;line-height:1.25;white-space:nowrap}@media(max-width:580px){.brand .club-name small{font-size:9px}.brand .club-name strong{font-size:21px}}
 
-.brand .club-name{font-family:Inter,"Noto Sans JP",sans-serif;font-weight:700}.brand .club-name small{font-size:12px;font-weight:600;letter-spacing:.06em;margin-bottom:6px}.brand .club-name strong{font-weight:700}header nav{font-size:15px}header .nav-join{font-size:15px}@media(max-width:650px){header nav{font-size:14px;gap:12px 18px}header .nav-join{font-size:14px}.brand .club-name small{font-size:11px}.brand .club-name strong{font-size:23px}}
+.brand .club-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900}.brand .club-name small{font-size:12px;font-weight:900;letter-spacing:.06em;margin-bottom:6px}.brand .club-name strong{font-weight:900}header nav{font-size:15px}header .nav-join{font-size:15px}@media(max-width:650px){header nav{font-size:14px;gap:12px 18px}header .nav-join{font-size:14px}.brand .club-name small{font-size:11px}.brand .club-name strong{font-size:23px}}
+/* Readable supporting text without changing large headings. */
+body p,.hero-copy>p,.about p,.radio p,.join p,.steps p,.program-story p,.history,.episode-copy p,.maintenance p,.general-contact p,.door-copy p,.portal-intro p{font-size:16px;line-height:1.9}
+.about .lead{font-size:18px}
+.eyebrow,.steps span,.door-top{font-size:12px}
+.button,.text-link,.social-links a,.youtube-link,.footer-nav a{font-size:15px}
+.site-switch,.door-tag,.list-note,.status,details,.schedule span{font-size:14px}
+details p{font-size:15px!important}
+.brand small,.program-brand small{font-size:11px}
+.note,.memo-foot,.photo figcaption,.door-art .hand,.gallery-section figcaption{font-size:13px}
+footer p{font-size:13px}footer small{font-size:12px}
+@media(max-width:650px){
+body p,.hero-copy>p,.about p,.join p,.steps p,.program-story p,.episode-copy p,.maintenance p,.general-contact p,.door-copy p,.portal-intro p{font-size:16px}
+.hero .button,.listen-links .button,.social-links a{font-size:15px}
+.site-switch{font-size:12px;flex-wrap:wrap;gap:4px 16px}
+.eyebrow,.portal-header .eyebrow{font-size:11px;letter-spacing:1px}
+.section-top>.hand{font-size:15px}.note,.photo figcaption,.door-art .hand{font-size:13px}
+.gallery-section figcaption{font-size:12px}.door-copy p{min-height:0}
+}
