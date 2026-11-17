@@ -30,3 +30,4 @@ body p,.hero-copy>p,.about p,.radio p,.join p,.steps p,.program-story p,.history
 details p{font-size:17px!important}.brand .club-name small,.program-brand small{font-size:13px}
 .steps article{padding-top:32px}.steps b{position:static;display:block;text-align:right;line-height:1;margin-top:18px}.photo{padding-bottom:13px}
 @media(max-width:650px){.hero-copy>p br{display:none}.site-switch{font-size:14px}.episode-copy .eyebrow{font-size:18px}.hero .button,.listen-links .button{font-size:16px}.portal-intro p,.door-copy p,.steps p,.episode-copy p{font-size:18px}.section-top{flex-wrap:wrap;gap:10px}}
+body,.hand,.brand .club-name{font-family:"Notofit JP",sans-serif;font-kerning:normal;text-autospace:normal}
