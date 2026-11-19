@@ -1,7 +1,7 @@
 name: Update Enkare episodes and publish
 on:
   schedule:
-        - cron: '45 3 * * *' # Every day at 12:45 JST
+    - cron: '45 3 * * *' # Every day at 12:45 JST
   workflow_dispatch:
   push:
     branches: [main]
@@ -13,18 +13,25 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      publish: ${{ steps.rss.outputs.publish }}
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/configure-pages@v5
-      - name: Fetch RSS and generate static pages
+      - name: Fetch RSS and generate static pages when changed
+        id: rss
         env:
+          PUBLISHED_RSS_STATE_URL: ${{ github.event_name == 'schedule' && 'https://cue-fm-radio.github.io/rss-state.json' || '' }}
           ENKARE_RSS_URL: https://anchor.fm/s/ec273278/podcast/rss
         run: python3 update_rss.py . ../site-build
+      - uses: actions/configure-pages@v5
+        if: steps.rss.outputs.publish == 'true'
       - uses: actions/upload-pages-artifact@v4
+        if: steps.rss.outputs.publish == 'true'
         with:
           path: ../site-build
   deploy:
     needs: build
+    if: needs.build.outputs.publish == 'true'
     runs-on: ubuntu-latest
     permissions:
       pages: write
