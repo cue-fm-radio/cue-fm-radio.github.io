@@ -1,5 +1,8 @@
 """Build the static preview from ENKARE_RSS_URL. No third-party dependencies."""
 import os
+import hashlib
+import json
+import urllib.error
 import re
 import shutil
 import sys
@@ -86,13 +89,44 @@ def build(source, output, data):
     for name, content in pages.items(): (output/name).write_text(content, encoding='utf-8')
     print(f'Built {len(items)} episodes. RSS owner/email fields are not published.')
 
-if __name__ == '__main__':
+def fingerprint(data):
+    # Compare only episode content rendered on the site, not RSS timestamps.
+    content = ''.join(card(item) for item in parse_feed(data))
+    return hashlib.sha256(content.encode('utf-8')).hexdigest()
+
+
+def needs_publish(digest, published_url):
+    request = urllib.request.Request(published_url, headers={'Cache-Control': 'no-cache', 'User-Agent': 'CueFM-RSS-Website/1.0'})
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            previous = json.loads(response.read(4096))
+    except urllib.error.HTTPError as error:
+        if error.code == 404:
+            return True  # First deployment with change detection.
+        raise
+    return previous.get('episode_sha256') != digest
+
+
+def main():
     url = safe_url(os.environ.get('ENKARE_RSS_URL'))
     if not url: sys.exit('Set ENKARE_RSS_URL to the verified public HTTPS feed URL')
     request = urllib.request.Request(url, headers={'User-Agent':'CueFM-RSS-Website/1.0'})
     with urllib.request.urlopen(request, timeout=30) as response:
         data = response.read(10_000_001)
     if len(data) > 10_000_000: sys.exit('RSS feed exceeds 10MB')
-    build(sys.argv[1] if len(sys.argv)>1 else '.', sys.argv[2] if len(sys.argv)>2 else '../site-build', data)
+    digest = fingerprint(data)
+    published_url = safe_url(os.environ.get('PUBLISHED_RSS_STATE_URL'))
+    publish = not published_url or needs_publish(digest, published_url)
+    if publish:
+        output = sys.argv[2] if len(sys.argv)>2 else '../site-build'
+        build(sys.argv[1] if len(sys.argv)>1 else '.', output, data)
+        (Path(output)/'rss-state.json').write_text(json.dumps({'episode_sha256': digest})+'\n', encoding='utf-8')
+    else:
+        print('Episode content unchanged; skipping build and deployment.')
+    if os.environ.get('GITHUB_OUTPUT'):
+        with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as stream:
+            stream.write('publish='+str(publish).lower()+'\n')
 
 
+if __name__ == '__main__':
+    main()
