@@ -1,7 +1,7 @@
 name: Update Enkare episodes and publish
 on:
   schedule:
-    - cron: '45 3 * * 4'
+        - cron: '45 3 * * *' # Every day at 12:45 JST
   workflow_dispatch:
   push:
     branches: [main]
